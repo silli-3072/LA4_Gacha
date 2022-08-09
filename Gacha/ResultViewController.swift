@@ -10,6 +10,7 @@ import UIKit
 class ResultViewController: UIViewController {
     
     var number: Int!
+    var hukidasiArray: [UIImage]!
     
     @IBOutlet var backgroundImageView: UIImageView!
     @IBOutlet var monsterImageView: UIImageView!
@@ -17,17 +18,32 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        number = Int.random(in: 0...9)
+        hukidasiArray = [UIImage(named: "001")!,
+                         UIImage(named: "002")!,
+                         UIImage(named: "003")!,
+                         UIImage(named: "004")!,
+                         UIImage(named: "005")!,
+                         UIImage(named: "006")!,
+                         UIImage(named: "007")!,
+                         UIImage(named: "008")!,
+                         UIImage(named: "009")!,
+                         UIImage(named: "010")!
+                         
+        ]
+        
+        let number = Int.random(in: 0...9)
+        
+        monsterImageView.image = hukidasiArray[number]
+        
         if number == 9 {
-            monsterImageView.image = UIImage(named: "monster010")
             backgroundImageView.image = UIImage(named: "bg_gold")
         } else if number > 7 {
-            monsterImageView.image = UIImage(named: "monster006")
             backgroundImageView.image = UIImage(named: "bg_red")
         } else {
-            monsterImageView.image = UIImage(named: "monster003")
             backgroundImageView.image = UIImage(named: "bg_blue")
         }
+        
+        print("🥰",backgroundImageView.image)
 
         // Do any additional setup after loading the view.
     }
